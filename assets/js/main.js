@@ -40,16 +40,21 @@ window.addEventListener('resize', () => {
 });
 
 function iniciar(){
-    // o próprio jogo remove a fruta (caso exista)
+    // o próprio jogo remove a fruta (caso exista, quer dizer que o jogador não clicou na fruta, se ele clicar, o jogo entenderá que a img foi removida e retornará false na condição, pulará o if e continuará o código)
     if(document.getElementById('fruta')){
+
         document.getElementById('fruta').remove();
 
         // vidas
         if(vidas > 3) {
-            alert('Acabou!')
+            // BOM - Browser Object Model (window)
+            // window.location.href = 'fim_de_jogo.html'; // redirecionando para a página de game over
+
         } else {
+
             document.getElementById('vida' + vidas).src = './assets/images/coracao_vazio.png';
             vidas++;
+
         }
     }
     

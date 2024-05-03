@@ -29,3 +29,13 @@ window.addEventListener('resize', () => {
 
     console.log(`Altura renderizada: ${alturaNavegador}, Largura renderizada ${larguraNavegador}`);
 });
+
+// pegando as coordenadas onde as frutas irão aparecer na tela, e calculando a posição aleatória X/Y onde a fruta irá aparecer dentro da largura/altura do navegador. o método floor está arredondando para baixo os valores que estão sendo gerados de forma aleatória pelo método random(), subtraindo 50 para que a imagem não ultrapasse as bordas quando for gerada, pois o tamanho da imagem pode acabar fazendo com que a imagem vaze nas bordas da janela do navegador
+let posicaoX =  Math.floor(Math.random() * larguraNavegador) - 50;
+let posicaoY = Math.floor(Math.random() * alturaNavegador) - 50;
+
+// como está sendo subtraindo -50 da posição atual onde a fruta irá aparecer, fazemos uma condição para que a fruta não fique em uma posição menor que 0. se for menor que zero, ela recebe 0, senão ela recebe ela mesma (permanece o valor que lhe tinha sido atribuído).
+posicaoX = posicaoX < 0 ? 0 : posicaoX
+posicaoY = posicaoY < 0 ? 0 : posicaoY
+
+console.log(`Posição aleatória X: ${posicaoX}, Posição aleatória Y: ${posicaoY}` );

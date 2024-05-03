@@ -8,6 +8,21 @@ const areaJogo = document.querySelector('.areaJogo');
 let alturaAreaJogo = areaJogo.clientHeight;
 let larguraAreaJogo = areaJogo.clientWidth;
 let vidas = 1;
+let tempo = 10;
+
+let cronometro = setInterval(() => {
+
+    if(tempo < 0){
+        clearInterval(cronometro);
+        clearInterval(criarFruta);
+    } else {
+
+        document.getElementById('cronometro').innerHTML = tempo;
+    }
+
+    tempo--;
+
+}, 1000);
 
 /* função nomeada (caso queira reutilizar a função em outras partes do código) para ajustar tamanho da área de jogo (onde serão renderizados os objetos) sempre que o jogador aumentar ou diminuir a tela
 function ajustarTamanhoAreaJogo() {
@@ -101,6 +116,6 @@ function iniciar(){
 };
 
 // criando e removendo uma fruta a cada ciclo de tempo
-setInterval(() => {
+let criarFruta = setInterval(() => {
     iniciar();
 }, 2000);

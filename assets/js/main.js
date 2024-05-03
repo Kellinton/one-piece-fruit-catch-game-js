@@ -39,3 +39,20 @@ posicaoX = posicaoX < 0 ? 0 : posicaoX
 posicaoY = posicaoY < 0 ? 0 : posicaoY
 
 console.log(`Posição aleatória X: ${posicaoX}, Posição aleatória Y: ${posicaoY}` );
+
+// criando um elemento html (img) que será a fruta que será renderizada em posições aleatórias na janela
+let fruta = document.createElement('img'); // criando o elemento
+let tamanhoFruta = Math.floor(Math.random() * 7 + 3);
+// let tamanhoFrutaLevelFacil = 7;
+// let tamanhoFrutaLevelDificil
+// console.log(`tamanho fruta:  ${tamanhoFruta}`);
+fruta.src = './assets/images/frutas/fruta_' + (Math.floor(Math.random() * 6) + 1) + '.png'; // escolhendo imagens entre 1 e 6 de forma randomica
+fruta.style.width = tamanhoFruta + 'em'; // tamanho da fruta de forma randomica
+fruta.style.position = 'absolute';
+fruta.style.left = posicaoX + 'px';
+fruta.style.top = posicaoY + 'px';
+
+document.body.appendChild(fruta); // adicionando ao body
+
+// criando e removendo uma fruta a cada ciclo de tempo
+

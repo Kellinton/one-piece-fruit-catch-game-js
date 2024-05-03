@@ -1,5 +1,6 @@
 // adicionando uma imagem ao body
 
+const html = document.documentElement;
 const body = document.body;
 const molduraAreaJogoStyle = document.querySelector('.molduraAreaJogo');
 const areaJogoStyle = document.querySelector('.areaJogo');
@@ -8,6 +9,7 @@ const painelStyle = document.querySelector('.painel');
 const vidasStyle = document.querySelector('.vidas');
 const cronometroStyle = document.querySelector('.cronometro');
 
+html.style.cursor = 'url("./assets/images/cursor.png"), auto';
 
 body.style.backgroundImage = 'url("./assets/images/fundo.png")';
 body.style.backgroundRepeat = 'no-repeat';
@@ -45,12 +47,12 @@ painelStyle.style.justifyContent = 'space-between';
 painelStyle.style.alignItems = 'center';
 painelStyle.style.width = '80%';
 painelStyle.style.height = '40px';
-painelStyle.style.backgroundColor = 'green';
 
 
-vidasStyle.style.backgroundColor = 'blue';
+
+
 vidasStyle.style.width = '50%';
 
-cronometroStyle.style.backgroundColor = 'red';
+
 cronometroStyle.style.marginLeft = '40px';
 cronometroStyle.style.width = '50%';

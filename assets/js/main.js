@@ -8,13 +8,16 @@ const areaJogo = document.querySelector('.areaJogo');
 let alturaAreaJogo = areaJogo.clientHeight;
 let larguraAreaJogo = areaJogo.clientWidth;
 let vidas = 1;
-let tempo = 10;
+let tempo = 30;
+let criaFrutaTempo = 1500;
 
 let cronometro = setInterval(() => {
 
     if(tempo < 0){
         clearInterval(cronometro);
         clearInterval(criarFruta);
+
+        window.location.href = 'tela_ganhador.html'
     } else {
 
         document.getElementById('cronometro').innerHTML = tempo;
@@ -35,6 +38,21 @@ function ajustarTamanhoAreaJogo() {
 ajustarTamanhoAreaJogo()
 
 */
+// alert(window.location.href);
+let nivel = window.location.search; // pegando apenas a query string (o que vem após o "?" na URL);
+nivel = nivel.replace('?', ''); // trocando o "?" por um espaço vazio
+
+if(nivel === 'supernova') {
+    criaFrutaTempo = 2000;
+}else if(nivel === 'shichibukai'){
+    criaFrutaTempo = 1500;
+}else if(nivel === 'almirante'){
+    criaFrutaTempo = 1000;
+}else if(nivel === 'yonkou'){
+    criaFrutaTempo = 500;
+}
+
+
 
 // evento disparado sempre quando redimensiona a tela, a função anônima pega a largura e altura e armazena dentro das variáveis, sempre que a tela for redimensionado para ajustar tamanho da área de jogo (onde serão renderizados os objetos) sempre que o jogador aumentar ou diminuir a tela
 window.addEventListener('resize', () => {
@@ -63,7 +81,7 @@ function iniciar(){
         // vidas
         if(vidas > 3) {
             // BOM - Browser Object Model (window)
-            // window.location.href = 'fim_de_jogo.html'; // redirecionando para a página de game over
+             window.location.href = 'tela_game_over.html'; // redirecionando para a página de game over
 
         } else {
 
@@ -118,4 +136,4 @@ function iniciar(){
 // criando e removendo uma fruta a cada ciclo de tempo
 let criarFruta = setInterval(() => {
     iniciar();
-}, 2000);
+}, criaFrutaTempo); // criaFrutaTempo (o tempo é definido pelo nível escolhido)
